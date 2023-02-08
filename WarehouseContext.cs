@@ -11,6 +11,7 @@ namespace AdoNetWinformsApp
         public DbSet<GoodType> GoodTypes { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<Delivery> Deliveries { get; set; }
+        public DbSet<Country> Countries { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {

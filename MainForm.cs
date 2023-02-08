@@ -14,11 +14,14 @@ namespace AdoNetWinformsApp
             ON G.GoodsTypeId = GT.Id";
 
         private WarehouseContext? _context;
+        CountryServices _countryServices;
+
         public MainForm()
         {
             InitializeComponent();
             _context = new WarehouseContext();
             _context.Database.Migrate();
+            _countryServices = new CountryServices(_context);
         }
 
         private async void btnShowGoods_Click(object sender, EventArgs e)
@@ -101,6 +104,19 @@ namespace AdoNetWinformsApp
             table.Load(reader);
             mainGrid.DataSource = null;
             mainGrid.DataSource = table;
+        }
+
+        async void SelectManyEducationalTask(object sender, EventArgs e)
+        {
+            var result = await _context.GoodTypes.SelectMany(
+                // collection selector
+                g => g.Goods,
+                // result selector
+                (t, g) =>
+            new {
+                TypeName = t.Name,
+                GoodName = g.Name
+            }).ToListAsync();
         }
     }
 }
