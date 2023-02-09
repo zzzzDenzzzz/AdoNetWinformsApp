@@ -106,6 +106,12 @@ namespace AdoNetWinformsApp
         {
             var result = _context.GoodTypes
                 .Where(t => t.Name == typeName).ToList();
+            select Goods.Name, GoodsTypes.Name
+            //from Goods
+            //inner join GoodsTypes
+            //on GoodsTypes.Id = Goods.GoodsTypeId
+            //group by Goods.Name, GoodsTypes.Name
+            //having GoodsTypes.Name = 'спортивный инвентарь'
         }
     }
 }
