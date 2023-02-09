@@ -14,6 +14,7 @@ namespace AdoNetWinformsApp
             ON G.GoodsTypeId = GT.Id";
 
         private WarehouseContext? _context;
+        WarehouseServices _warehouseServices;
         CountryServices _countryServices;
 
         public MainForm()
@@ -22,6 +23,7 @@ namespace AdoNetWinformsApp
             _context = new WarehouseContext();
             _context.Database.Migrate();
             _countryServices = new CountryServices(_context);
+            _warehouseServices = new WarehouseServices(_context);
         }
 
         private async void btnShowGoods_Click(object sender, EventArgs e)
