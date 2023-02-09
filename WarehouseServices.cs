@@ -106,5 +106,6 @@ namespace AdoNetWinformsApp
         {
             var result = _context.GoodTypes
                 .Where(t => t.Name == typeName).ToList();
+        }
     }
 }
