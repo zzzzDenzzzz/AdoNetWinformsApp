@@ -1,9 +1,5 @@
-﻿using AdoNetWinformsApp.Entities;
-using AdoNetWinformsApp.Forms.GoodType;
+﻿using AdoNetWinformsApp.Forms.GoodType;
 using AdoNetWinformsApp.Services;
-using FastMember;
-using Microsoft.EntityFrameworkCore;
-using System.Data;
 
 namespace AdoNetWinformsApp
 {
