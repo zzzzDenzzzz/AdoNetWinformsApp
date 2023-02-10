@@ -102,16 +102,33 @@ namespace AdoNetWinformsApp
         }
 
         // показать товары заданной категории
-        public async Task<List<Good>> GetGoodsTypeAsync(string typeName)
+        public async Task<List<Good>> GetGoodsOfGivenTypeAsync(string typeName)
         {
-            var result = _context.GoodTypes
-                .Where(t => t.Name == typeName).ToList();
-            select Goods.Name, GoodsTypes.Name
-            //from Goods
-            //inner join GoodsTypes
-            //on GoodsTypes.Id = Goods.GoodsTypeId
-            //group by Goods.Name, GoodsTypes.Name
-            //having GoodsTypes.Name = 'спортивный инвентарь'
+            var listIdGoodType = _context.GoodTypes
+                .Where(g => g.Name == typeName)
+                .Select(g => g.Id)
+                .ToList();
+
+            return await _context.Goods
+                .Where(g => g.GoodsTypeId == listIdGoodType.SingleOrDefault())
+                .ToListAsync();
+        }
+
+        // показать товары заданного поставщика
+        public async Task<List<Good>> GetGoodsFromGivenSupplierAsync(string supplierName)
+        {
+            var listIdSupplier = _context.Suppliers
+                .Where(s => s.Name == supplierName)
+                .Select(s => s.Id)
+                .ToList();
+            var listIdDeliveries = _context.Deliveries
+                .Where(d => d.GoodsId == listIdSupplier.SingleOrDefault())
+                .Select(d => d.GoodsId)
+                .ToList();
+
+            return await _context.Goods
+                .Where(g => g.GoodsTypeId == listIdDeliveries.SingleOrDefault())
+                .ToListAsync();
         }
     }
 }
