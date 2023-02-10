@@ -9,8 +9,8 @@ namespace AdoNetWinformsApp.EntityMappings
     {
         public void Configure(EntityTypeBuilder<Country> builder)
         {
-            builder.Property(x => x.Name).HasMaxLength(DatabaseDefault.StringValueMaxLength);
-            builder.Property(x => x.Capital).HasMaxLength(DatabaseDefault.StringValueMaxLength);
+            builder.Property(x => x.Name).HasMaxLength(DatabaseDefaults.StringValueMaxLength);
+            builder.Property(x => x.Capital).HasMaxLength(DatabaseDefaults.StringValueMaxLength);
         }
     }
 }

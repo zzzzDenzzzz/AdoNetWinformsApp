@@ -1,6 +1,6 @@
 ﻿namespace AdoNetWinformsApp.Constant
 {
-    internal class DatabaseDefault
+    internal class DatabaseDefaults
     {
         public static int StringValueMaxLength = 100;
     }

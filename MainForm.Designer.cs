@@ -28,118 +28,136 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.mainGrid = new System.Windows.Forms.DataGridView();
-            this.btnShowGoods = new System.Windows.Forms.Button();
-            this.btnSuppliers = new System.Windows.Forms.Button();
-            this.btnGoodsTypes = new System.Windows.Forms.Button();
-            this.btnDeliveries = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnGoodsWIthTypes = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.mainGrid)).BeginInit();
+            this.mainTab = new System.Windows.Forms.TabControl();
+            this.goodsTab = new System.Windows.Forms.TabPage();
+            this.gridGoods = new System.Windows.Forms.DataGridView();
+            this.goodsTypeTab = new System.Windows.Forms.TabPage();
+            this.btnAddGoodType = new System.Windows.Forms.Button();
+            this.gridGoodsType = new System.Windows.Forms.DataGridView();
+            this.btnDeleteGoodType = new System.Windows.Forms.Button();
+            this.mainTab.SuspendLayout();
+            this.goodsTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridGoods)).BeginInit();
+            this.goodsTypeTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridGoodsType)).BeginInit();
             this.SuspendLayout();
             // 
-            // mainGrid
+            // mainTab
             // 
-            this.mainGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.mainGrid.Location = new System.Drawing.Point(10, 9);
-            this.mainGrid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.mainGrid.Name = "mainGrid";
-            this.mainGrid.RowHeadersWidth = 51;
-            this.mainGrid.RowTemplate.Height = 29;
-            this.mainGrid.Size = new System.Drawing.Size(679, 320);
-            this.mainGrid.TabIndex = 2;
+            this.mainTab.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mainTab.Controls.Add(this.goodsTab);
+            this.mainTab.Controls.Add(this.goodsTypeTab);
+            this.mainTab.Location = new System.Drawing.Point(12, 12);
+            this.mainTab.Name = "mainTab";
+            this.mainTab.SelectedIndex = 0;
+            this.mainTab.Size = new System.Drawing.Size(1188, 598);
+            this.mainTab.TabIndex = 0;
+            this.mainTab.SelectedIndexChanged += new System.EventHandler(this.MainTab_SelectedIndexChanged);
             // 
-            // btnShowGoods
+            // goodsTab
             // 
-            this.btnShowGoods.Location = new System.Drawing.Point(695, 9);
-            this.btnShowGoods.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnShowGoods.Name = "btnShowGoods";
-            this.btnShowGoods.Size = new System.Drawing.Size(102, 22);
-            this.btnShowGoods.TabIndex = 3;
-            this.btnShowGoods.Text = "Товары";
-            this.btnShowGoods.UseVisualStyleBackColor = true;
-            this.btnShowGoods.Click += new System.EventHandler(this.btnShowGoods_Click);
+            this.goodsTab.Controls.Add(this.gridGoods);
+            this.goodsTab.Location = new System.Drawing.Point(4, 24);
+            this.goodsTab.Name = "goodsTab";
+            this.goodsTab.Padding = new System.Windows.Forms.Padding(3);
+            this.goodsTab.Size = new System.Drawing.Size(1180, 570);
+            this.goodsTab.TabIndex = 0;
+            this.goodsTab.Text = "Goods";
+            this.goodsTab.UseVisualStyleBackColor = true;
             // 
-            // btnSuppliers
+            // gridGoods
             // 
-            this.btnSuppliers.Location = new System.Drawing.Point(695, 35);
-            this.btnSuppliers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSuppliers.Name = "btnSuppliers";
-            this.btnSuppliers.Size = new System.Drawing.Size(102, 22);
-            this.btnSuppliers.TabIndex = 4;
-            this.btnSuppliers.Text = "Поставщики";
-            this.btnSuppliers.UseVisualStyleBackColor = true;
+            this.gridGoods.AllowUserToAddRows = false;
+            this.gridGoods.AllowUserToResizeColumns = false;
+            this.gridGoods.AllowUserToResizeRows = false;
+            this.gridGoods.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridGoods.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridGoods.Location = new System.Drawing.Point(6, 6);
+            this.gridGoods.Name = "gridGoods";
+            this.gridGoods.RowHeadersVisible = false;
+            this.gridGoods.RowTemplate.Height = 25;
+            this.gridGoods.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridGoods.Size = new System.Drawing.Size(925, 558);
+            this.gridGoods.TabIndex = 0;
             // 
-            // btnGoodsTypes
+            // goodsTypeTab
             // 
-            this.btnGoodsTypes.Location = new System.Drawing.Point(695, 62);
-            this.btnGoodsTypes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnGoodsTypes.Name = "btnGoodsTypes";
-            this.btnGoodsTypes.Size = new System.Drawing.Size(102, 22);
-            this.btnGoodsTypes.TabIndex = 5;
-            this.btnGoodsTypes.Text = "Типы товаров";
-            this.btnGoodsTypes.UseVisualStyleBackColor = true;
-            this.btnGoodsTypes.Click += new System.EventHandler(this.btnGoodsTypes_Click);
+            this.goodsTypeTab.Controls.Add(this.btnDeleteGoodType);
+            this.goodsTypeTab.Controls.Add(this.btnAddGoodType);
+            this.goodsTypeTab.Controls.Add(this.gridGoodsType);
+            this.goodsTypeTab.Location = new System.Drawing.Point(4, 24);
+            this.goodsTypeTab.Name = "goodsTypeTab";
+            this.goodsTypeTab.Padding = new System.Windows.Forms.Padding(3);
+            this.goodsTypeTab.Size = new System.Drawing.Size(1180, 570);
+            this.goodsTypeTab.TabIndex = 1;
+            this.goodsTypeTab.Text = "GoodsType";
+            this.goodsTypeTab.UseVisualStyleBackColor = true;
             // 
-            // btnDeliveries
+            // btnAddGoodType
             // 
-            this.btnDeliveries.Location = new System.Drawing.Point(695, 88);
-            this.btnDeliveries.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDeliveries.Name = "btnDeliveries";
-            this.btnDeliveries.Size = new System.Drawing.Size(102, 22);
-            this.btnDeliveries.TabIndex = 6;
-            this.btnDeliveries.Text = "Поставки";
-            this.btnDeliveries.UseVisualStyleBackColor = true;
+            this.btnAddGoodType.Location = new System.Drawing.Point(937, 6);
+            this.btnAddGoodType.Name = "btnAddGoodType";
+            this.btnAddGoodType.Size = new System.Drawing.Size(237, 23);
+            this.btnAddGoodType.TabIndex = 2;
+            this.btnAddGoodType.Text = "Добавить тип товара";
+            this.btnAddGoodType.UseVisualStyleBackColor = true;
+            this.btnAddGoodType.Click += new System.EventHandler(this.BtnAddGoodType_Click);
             // 
-            // btnUpdate
+            // gridGoodsType
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(695, 289);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(102, 40);
-            this.btnUpdate.TabIndex = 7;
-            this.btnUpdate.Text = "Обновить данные";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.gridGoodsType.AllowUserToAddRows = false;
+            this.gridGoodsType.AllowUserToResizeColumns = false;
+            this.gridGoodsType.AllowUserToResizeRows = false;
+            this.gridGoodsType.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridGoodsType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridGoodsType.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.gridGoodsType.Location = new System.Drawing.Point(6, 6);
+            this.gridGoodsType.Name = "gridGoodsType";
+            this.gridGoodsType.RowHeadersVisible = false;
+            this.gridGoodsType.RowTemplate.Height = 25;
+            this.gridGoodsType.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridGoodsType.Size = new System.Drawing.Size(925, 558);
+            this.gridGoodsType.TabIndex = 1;
             // 
-            // btnGoodsWIthTypes
+            // btnDeleteGoodType
             // 
-            this.btnGoodsWIthTypes.Location = new System.Drawing.Point(695, 124);
-            this.btnGoodsWIthTypes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnGoodsWIthTypes.Name = "btnGoodsWIthTypes";
-            this.btnGoodsWIthTypes.Size = new System.Drawing.Size(102, 57);
-            this.btnGoodsWIthTypes.TabIndex = 8;
-            this.btnGoodsWIthTypes.Text = "Товары полная информация";
-            this.btnGoodsWIthTypes.UseVisualStyleBackColor = true;
+            this.btnDeleteGoodType.Location = new System.Drawing.Point(937, 35);
+            this.btnDeleteGoodType.Name = "btnDeleteGoodType";
+            this.btnDeleteGoodType.Size = new System.Drawing.Size(237, 23);
+            this.btnDeleteGoodType.TabIndex = 3;
+            this.btnDeleteGoodType.Text = "Удалить тип товара";
+            this.btnDeleteGoodType.UseVisualStyleBackColor = true;
+            this.btnDeleteGoodType.Click += new System.EventHandler(this.btnDeleteGoodType_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 338);
-            this.Controls.Add(this.btnGoodsWIthTypes);
-            this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnDeliveries);
-            this.Controls.Add(this.btnGoodsTypes);
-            this.Controls.Add(this.btnSuppliers);
-            this.Controls.Add(this.btnShowGoods);
-            this.Controls.Add(this.mainGrid);
+            this.ClientSize = new System.Drawing.Size(1212, 622);
+            this.Controls.Add(this.mainTab);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
             this.Text = "MainForm";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.mainGrid)).EndInit();
+            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.mainTab.ResumeLayout(false);
+            this.goodsTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridGoods)).EndInit();
+            this.goodsTypeTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridGoodsType)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private DataGridView mainGrid;
-        private Button btnShowGoods;
-        private Button btnSuppliers;
-        private Button btnGoodsTypes;
-        private Button btnDeliveries;
-        private Button btnUpdate;
-        private Button btnGoodsWIthTypes;
+
+        private TabControl mainTab;
+        private TabPage goodsTab;
+        private DataGridView gridGoods;
+        private TabPage goodsTypeTab;
+        private DataGridView gridGoodsType;
+        private Button btnAddGoodType;
+        private Button btnDeleteGoodType;
     }
 }
